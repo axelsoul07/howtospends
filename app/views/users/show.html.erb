@@ -1,0 +1,20 @@
+<div class="row">
+  <aside class="col-xs-4 col-xs-offset-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+      </div>
+      <div class="panel-heading">
+        <h3 class="panel-title text-center"><%= @user.name %></h3>
+      </div>
+    </div>
+  </aside>
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs nav-justified">
+      <li><a href="#">マイプラン</a></li>
+      <li><a href="#">フォロー</a></li>
+      <li><a href="#">フォロワー</a></li>
+      <li><a href="#">お気に入りプラン</a></li>
+    </ul>
+  </div>
+</div>
