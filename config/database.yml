@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: howtospends_production
   username: howtospends
   password: <%= ENV['HOWTOSPENDS_DATABASE_PASSWORD'] %>
