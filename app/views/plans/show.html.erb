@@ -35,7 +35,7 @@
   <% else %>
     <%= form_for(@plan) do |f| %>
       <%= hidden_field_tag 'plan[status]' , '0' %>
-      <%= submit_tag '非公開', class: 'btn btn-success' %>
+      <%= submit_tag '非公開', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
   </div>
