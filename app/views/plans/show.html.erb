@@ -22,7 +22,7 @@
 </div>
 <% if current_user == @plan.user %>
   <div class="col-xs-8 col-xs-offset-2">
-    <%= link_to '一覧に戻る', plans_path %>
+    <%= link_to 'マイページへ', user_path(current_user) %>
     <%= link_to 'このプランを編集する', edit_plan_path(@plan) %>
     <%= link_to 'このプランを削除する', @plan, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
   </div>
