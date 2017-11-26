@@ -1,0 +1,24 @@
+<h1>id: <%= @plan.id %> のメッセージ編集ページ</h1>
+
+<%= form_for(@plan) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, '住所' %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, '内容' %>
+    <%= f.text_area :content, size: "100x10", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :money, '金額' %>
+    <%= f.text_area :money, size: "100x4", class: 'form-control' %>
+  </div>
+
+  <%= f.submit '修正', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= link_to '一覧に戻る', plans_path %>

@@ -1,0 +1,42 @@
+<h1>プラン【<%= @plan.title %>】の詳細ページ</h1>
+
+<div class="panel panel-default col-xs-8 col-xs-offset-2 panel-body">
+  <table class="table">
+    <tr>
+      <th>タイトル</th>
+      <td><%= @plan.title %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @plan.address %></td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td><%= @plan.content %></td>
+    </tr>
+    <tr>
+      <th>金額</th>
+      <td><%= @plan.money %></td>
+    </tr>
+  </table>
+</div>
+<% if current_user == @plan.user %>
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= link_to '一覧に戻る', plans_path %>
+    <%= link_to 'このプランを編集する', edit_plan_path(@plan) %>
+    <%= link_to 'このプランを削除する', @plan, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+  </div>
+  <div class="col-xs-8 col-xs-offset-2">
+  <% if @plan.status == 0 %>
+    <%= form_for(@plan) do |f| %>
+      <%= hidden_field_tag 'plan[status]' , '1' %>
+      <%= submit_tag '公開', class: 'btn btn-success' %>
+    <% end %>
+  <% else %>
+    <%= form_for(@plan) do |f| %>
+      <%= hidden_field_tag 'plan[status]' , '0' %>
+      <%= submit_tag '非公開', class: 'btn btn-success' %>
+    <% end %>
+  <% end %>
+  </div>
+<% end %>

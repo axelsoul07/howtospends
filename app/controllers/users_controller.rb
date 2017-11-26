@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @plans = @user.plans.order('created_at DESC').page(params[:page])
   end
 
   def new
@@ -29,5 +30,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  def correct_user
+    @user = current_user.plans.find_by(id: params[:id])
+    unless @user
+      redirect_to root_url
+    end
   end
 end

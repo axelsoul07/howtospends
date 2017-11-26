@@ -1,0 +1,9 @@
+<h1>メッセージ一覧</h1>
+
+<ul class="list-group">
+  <% @plans.each do |plan| %>
+    <li class="list-group-item"><%= link_to plan.title, plan %></li>
+  <% end %>
+</ul>
+
+<%= link_to '新規プランの投稿', new_plan_path %>
